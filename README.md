@@ -51,7 +51,7 @@ python stream_monitor.py
 
 ### 7. Configure the app
 - In the app setup, update paths as needed.  
-- Fingerprint your songs.  (You will some warnings in logs when fingerprinting, but you can ignore them if everything is done correctly the app will run successfully (you can share the logs with me to confirm but mostly there won't be an issue)
+- Fingerprint your songs.  (You will see some warnings in logs when fingerprinting, but you can ignore them if everything is done correctly the app will run successfully (you can share the logs with me to confirm but mostly there won't be an issue)
 - Set the stream URL.  
 - Click on **Monitoring** to see detections in real time.
 
