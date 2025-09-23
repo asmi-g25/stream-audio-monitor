@@ -41,7 +41,7 @@ pip install -r requirements.txt
 ```
 
 ### 5. Prepare your music files
-Place your MP3s or songs in a folder of your choice.
+Place your MP3s in a folder of your choice.
 
 ### 6. Run the application
 
