@@ -1,61 +1,73 @@
-
-# Stream Audio Monitor
+Stream Audio Monitor – Windows Setup (WSL)
 
 A simple application to monitor streams and detect songs from your local MP3 library.
 
-## How to Run on Windows
+1. Install WSL (Windows Subsystem for Linux)
 
-### 1. Install WSL (Windows Subsystem for Linux)
-If not already installed, run:
+If not already installed, open PowerShell (as Administrator) and run:
 
-```bash
 wsl --install
-```
 
-### 2. Open WSL and install dependencies
-- **Install Java**:
 
-```bash
-sudo apt install openjdk-17-jdk -y
-```
+Restart your computer if prompted.
+By default, WSL will install Ubuntu.
 
-- **Install FFmpeg**:
+2. Open WSL and install all dependencies
 
-```bash
-sudo apt install ffmpeg -y
-```
+Launch Ubuntu (WSL) from the Start menu and run this one command:
 
-### 3. Clone the repository
+sudo apt update && sudo apt install -y openjdk-17-jdk ffmpeg python3 python3-venv python3-pip git
 
-```bash
+
+This installs:
+
+Java (for fingerprinting)
+
+FFmpeg (for audio processing)
+
+Python 3 + venv + pip (for running the app)
+
+Git (to clone the repository)
+
+3. Clone the repository
 git clone https://github.com/asmi-g25/stream-audio-monitor
 cd stream-audio-monitor
-```
 
-### 4. Set up Python virtual environment
-
-```bash
+4. Set up Python virtual environment
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-```
 
-### 5. Prepare your music files
+
+⚠️ Remember: you must activate the virtual environment every time you run the app.
+
+5. Prepare your music files
+
 Place your MP3s in a folder of your choice.
+(If they are on Windows, you can access them in WSL under /mnt/c/...)
 
-### 6. Run the application
-
-```bash
+6. Run the application
 python stream_monitor.py
-```
 
-### 7. Configure the app
-- In the app setup, update paths as needed.  
-- Fingerprint your songs.  (You will see some warnings in logs when fingerprinting, but you can ignore them if everything is done correctly the app will run successfully (you can share the logs with me to confirm but mostly there won't be an issue)
-- Set the stream URL.  
-- Click on **Monitoring** to see detections in real time.
+7. Configure the app
 
-## To make sure it runs correctly:
-- Make sure your virtual environment is activated whenever you run the app otherwise there will errors in install requirements and also please make sure you are in WSL only 
-- Paths in the app should point correctly to your songs and any required folders. The DB folder is not mandatory so you can leave it as it is, no need to create or anything  
-- FFmpeg and Java must be installed in WSL for the app to function properly.
+Update paths in the app setup to point to your MP3 folder.
+
+Fingerprint your songs (some warnings may appear in logs – usually safe to ignore).
+
+Set the stream URL.
+
+Click Monitoring to see detections in real time.
+
+Notes
+
+Always activate your virtual environment before running:
+
+source venv/bin/activate
+
+
+Always run inside WSL, not Windows CMD/PowerShell.
+
+The DB folder is optional; no need to create it manually.
+
+FFmpeg and Java must remain installed in WSL.
